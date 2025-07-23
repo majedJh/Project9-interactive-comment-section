@@ -1,0 +1,329 @@
+/* start variables */
+:root {
+  --Purple-600: hsl(238, 40%, 52%);
+  --Purple-600-hover: hsl(238, 46%, 38%);
+  --Pink-400: hsl(358, 79%, 66%);
+  --Purple-200: hsl(239, 57%, 85%);
+  --Pink-200: hsl(357, 100%, 86%);
+  --Grey-800: hsl(212, 24%, 26%);
+  --Grey-500: hsl(211, 10%, 45%);
+  --Grey-100: hsl(223, 19%, 93%);
+  --Grey-50: hsl(228, 33%, 97%);
+  --box-padding: 20px;
+}
+/* end variables */
+/* start global rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:focus-visible {
+  outline: 3px dotted #888;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: var(--Grey-100);
+}
+body.no-scroll {
+  overflow: hidden;
+  height: 100dvh;
+}
+a,
+li {
+  text-decoration: none;
+  cursor: pointer;
+}
+button {
+  user-select: none;
+  cursor: pointer;
+}
+*[role="button"],
+button img,
+*[role="button"] img {
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+}
+p {
+  font-size: 16px;
+}
+.hidden {
+  display: none;
+}
+.black-layer {
+  left: 0;
+  top: 0;
+  height: 100dvh;
+  background-color: black;
+  opacity: 0.5;
+  width: 100vw;
+  max-width: 100%;
+  z-index: 3;
+}
+
+/* end global rules  */
+.confirm-delete {
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  background-color: white;
+  border-radius: 6px;
+  padding: 20px 30px;
+}
+.confirm-delete h4 {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.confirm-delete p {
+  color: var(--Grey-500);
+  margin-bottom: 15px;
+}
+.confirm-delete .confirm-buttons {
+  width: 100%;
+}
+.confirm-delete .confirm-buttons button {
+  border: none;
+  flex: 1;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+.confirm-delete .confirm-buttons button.cancel {
+  background-color: var(--Grey-500);
+  margin-right: 5px;
+}
+.confirm-delete .confirm-buttons button.confirm {
+  background-color: var(--Pink-400);
+  margin-left: 5px;
+}
+.page-container {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 75%;
+  padding: 40px 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: calc(100dvh);
+}
+@media (max-width: 767px) {
+  .page-container {
+    width: 90%;
+    padding: 20px 0;
+  }
+}
+.comments-list {
+  overflow-y: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.comment-box {
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: var(--box-padding);
+}
+@media (max-width: 767px) {
+  .comment-box {
+    flex-direction: column;
+  }
+}
+.vote {
+  width: 50px;
+  flex-direction: column;
+  height: 90px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--Grey-100);
+  color: var(--Purple-600);
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+@media (max-width: 767px) {
+  .vote {
+    order: 2;
+    flex-direction: row;
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.vote button {
+  background-color: transparent;
+  border: none;
+}
+@media (max-width: 767px) {
+  .vote button.up-vote {
+    order: 3;
+  }
+  .vote .vote-quantity {
+    order: 2;
+  }
+  .vote button.vote-down {
+    order: 1;
+  }
+}
+.comment-about {
+  width: 100%;
+  max-width: calc(100% - 45px);
+}
+.comment-info {
+  margin-bottom: 10px;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .comment-info {
+    margin-bottom: 15px;
+  }
+}
+.pfp {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.pfp img {
+  width: 30px;
+}
+.username {
+  font-weight: 600;
+  margin-right: 10px;
+}
+.you {
+  font-size: 12px;
+  background-color: var(--Purple-600);
+  padding: 2px 5px;
+  border-radius: 6px;
+  color: white;
+  margin-right: 10px;
+  margin-left: -5px;
+}
+.create-time {
+  color: var(--Grey-800);
+  font-size: 14px;
+  margin-right: 10px;
+  flex: 1;
+}
+@media (max-width: 767px) {
+  .comment-toolbox {
+    flex-direction: column;
+  }
+}
+.unactive {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.comment-toolbox > div:not(:last-of-type) {
+  margin-right: 15px;
+}
+@media (max-width: 767px) {
+  .comment-toolbox > div:not(:last-of-type) {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+.comment-toolbox > div span {
+  margin-left: 5px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.comment-toolbox > div span:not(.delete) {
+  color: var(--Purple-600);
+}
+.comment-toolbox > div span.delete {
+  color: var(--Pink-400);
+}
+.comment-toolbox > div img {
+  max-height: 80%;
+  margin-top: 3px;
+}
+.comment-content {
+  color: var(--Grey-500);
+  font-size: 14px;
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+.replies-list {
+  margin-left: 15px;
+  border-left: 2px solid #dfdfdf;
+  padding-left: 15px;
+}
+.add-comment {
+  width: 100%;
+  background-color: white;
+  border-radius: 6px;
+  padding: var(--box-padding);
+  margin-top: 20px;
+}
+.comment .add-comment,
+.comments-list .add-comment {
+  margin-bottom: 20px;
+}
+.add-comment textarea,
+.comment textarea {
+  flex: 1;
+  width: 100%;
+  resize: none;
+  min-height: 80px;
+  overflow-y: hidden;
+  border-radius: 10px;
+  border: 2px solid var(--Grey-100);
+  padding: 10px;
+}
+.add-comment textarea.page {
+  overflow-y: auto;
+}
+.add-comment textarea.page::-webkit-scrollbar {
+  display: none;
+}
+.add-comment textarea:focus,
+.comment textarea:focus {
+  outline: none;
+}
+.add-comment textarea::placeholder,
+.comment textarea::placeholder {
+  color: var(--Grey-500);
+  font-size: 14px;
+  transition: 0.3s opacity;
+}
+.add-comment textarea:focus::placeholder,
+.comment textarea:focus::placeholder {
+  opacity: 0;
+}
+button.send {
+  background-color: var(--Purple-600);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  height: 50px;
+  transition: 0.3s background-color;
+  margin-left: 10px;
+}
+@media (max-width: 767px) {
+  button.send.submit-edit {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    margin-left: 0;
+  }
+}
+button.send:hover {
+  background-color: var(--Purple-600-hover);
+}
