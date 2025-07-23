@@ -61,7 +61,7 @@ The hardest project so far, yet the most entertaining one. Learnt how to use cur
 
 ### Continued development
 
-I should've divided the login into more functions for more reeuseability.
+I should've divided the login into more functions for more reuseability.
 
 ### Useful resources
 
